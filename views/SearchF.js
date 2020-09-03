@@ -19,7 +19,6 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import Container from '@material-ui/core/Container';
 
-import headersStyle from '../../dyd-ui/assets/jss/dyd-react/views/sectionsSections/headersStyle';
 import ComponentMapping from '../../_pxp/components/ComponentMapping/ComponentMapping';
 import AutocompletePxp from '../../_pxp/components/Form/AutocompletePxp';
 import InitValues from '../../_pxp/hooks/InitValues';
