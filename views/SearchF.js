@@ -26,7 +26,6 @@ import SvgIcon from '@material-ui/core/SvgIcon';
 import Container from '@material-ui/core/Container';
 
 import Avatar from '@material-ui/core/Avatar';
-import headersStyle from '../../dyd-ui/assets/jss/dyd-react/views/sectionsSections/headersStyle';
 import ComponentMapping from '../../_pxp/components/ComponentMapping/ComponentMapping';
 import AutocompletePxp from '../../_pxp/components/Form/AutocompletePxp';
 import InitValues from '../../_pxp/hooks/InitValues';
@@ -37,12 +36,7 @@ import ManagerFile from '../../_parameters/components/ManagerFile/ManagerFile';
 import DialogPxp from '../../_pxp/components/DialogPxp';
 import Header from '../Sections/Header';
 import SkeletonFuncionario from '../components/SkeletonFuncionario';
-import { getUrlForView } from '../../_pxp/utils/Common';
-import CircularProgress from '../../_pxp/components/CircularProgress';
-import OfficeChair2 from '../assets/icons/OfficeChair2';
-import CommercialDevelopmentManagement from "../assets/icons/CommercialDevelopmentManagement";
-
-const useStyles = makeStyles(headersStyle);
+import CommercialDevelopmentManagement from '../assets/icons/CommercialDevelopmentManagement';
 
 const SearchF = ({ ...rest }) => {
   const classes = useStyles();
@@ -133,7 +127,6 @@ const SearchF = ({ ...rest }) => {
           </>
         ),
       },
-
     }),
   );
 
