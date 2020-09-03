@@ -35,8 +35,6 @@
  *);
  *
  */
-//import disydes styles
-//import '../dyd-ui/assets/scss/dyd.scss';
 
 // import external libraries
 import React, { Suspense } from 'react';
@@ -66,16 +64,12 @@ import { login, startSetMenu } from '../_pxp/actions/auth';
 import pxpPages from './pages';
 
 // import your custom pages
-//import examplePages from '../_examples/components';
-// import presuPages from './presupuestos/components';
 
 // init translations
 // eslint-disable-next-line no-unused-vars
 import i18n from '../_pxp/i18n';
 import LoadingScreen from '../_pxp/components/LoadingScreen';
-import ProfilePage from "./views/ProfilePage";
-import {Container} from "@material-ui/core";
-import MainContainer from "./MainContainer";
+import MainContainer from './MainContainer';
 
 // init client (you can replace this for any api client)
 PxpClient.init(

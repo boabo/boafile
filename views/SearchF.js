@@ -6,15 +6,9 @@
 
 import React, { useRef, useState } from 'react';
 
-import { makeStyles } from '@material-ui/core/styles';
 import {
   Box,
   Card,
-  Table,
-  TableBody,
-  TableCell,
-  TableRow,
-  Typography,
 } from '@material-ui/core';
 
 import _ from 'lodash';
@@ -25,7 +19,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import Container from '@material-ui/core/Container';
 
-import Avatar from '@material-ui/core/Avatar';
+import headersStyle from '../../dyd-ui/assets/jss/dyd-react/views/sectionsSections/headersStyle';
 import ComponentMapping from '../../_pxp/components/ComponentMapping/ComponentMapping';
 import AutocompletePxp from '../../_pxp/components/Form/AutocompletePxp';
 import InitValues from '../../_pxp/hooks/InitValues';
@@ -36,10 +30,9 @@ import ManagerFile from '../../_parameters/components/ManagerFile/ManagerFile';
 import DialogPxp from '../../_pxp/components/DialogPxp';
 import Header from '../Sections/Header';
 import SkeletonFuncionario from '../components/SkeletonFuncionario';
-import CommercialDevelopmentManagement from '../assets/icons/CommercialDevelopmentManagement';
+
 
 const SearchF = ({ ...rest }) => {
-  const classes = useStyles();
 
   const [openDialog, setOpenDialog] = useState(false);
   const [managerFile, setIdManagerFile] = useState({
@@ -103,30 +96,8 @@ const SearchF = ({ ...rest }) => {
         idDD: 'id_uo',
         descDD: 'nombre_unidad',
         minChars: 2,
-        renderOption: (row) => (
-          <>
-            <Table style={{ width: '100%' }}>
-              <TableBody>
-                <TableRow hover key={row.id_uo}>
-                  <TableCell>
-                    <Box display="flex" alignItems="center">
-                      <Avatar className={classes.avatar}>
-                        <CommercialDevelopmentManagement />
-                      </Avatar>
-
-                      <Box ml={2}>
-                        <Typography variant="h6" color="textPrimary">
-                          {row.nombre_unidad}
-                        </Typography>
-                      </Box>
-                    </Box>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </>
-        ),
       },
+
     }),
   );
 
@@ -200,7 +171,7 @@ const SearchF = ({ ...rest }) => {
             <Box flexGrow={1} mr={5} />
 
             <TextField
-              className={classes.queryField}
+              //className={classes.queryField}
               style={{ width: 500 }}
               InputProps={{
                 startAdornment: (
