@@ -23,8 +23,7 @@ import useStylesCardFuncionario from '../assets/js/components/cardFuncionarioSty
 
 const CardFuncionario = ({ row, openManagerFile }) => {
   const history = useHistory();
-  const classesComponent = useStylesCardFuncionario();
-
+  const classesComponent = useStylesCardFuncionario(); 
   return (
     <>
       <Card className={clsx(classesComponent.root)}>

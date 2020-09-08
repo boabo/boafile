@@ -31,19 +31,10 @@ pages.WEB__Profile = {
 };
 
 
-//remove that
-pages.MER__Item = {
-  path: '/sales/item',
-  component: lazy(() =>
-    //import('../_examples/components/form/AutoCompleteTriggerComponent'),
-    import('../_examples/components/table/ExampleTable'),
-  ),
-};
-pages.SU__Country = {
-  path: '/sales/country',
-  component: lazy(() =>
-    import('../_examples/components/form/AutoCompleteTriggerComponent'),
-  ),
+
+pages.WEB__Parentesco = {
+  path: '/profiles/parentescos/:id',
+  component: lazy(() => import('./views/Parentesco')),
 };
 
 export default pages;
