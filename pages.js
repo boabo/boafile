@@ -29,12 +29,22 @@ pages.WEB__Profile = {
   path: 'profiles/:id',
   component: lazy(() => import('./views/ProfilePage')),
 };
-
-
-
+/* Agrengando las nuevas rutas de redireccionamiento */
 pages.WEB__Parentesco = {
   path: '/profiles/parentescos/:id',
   component: lazy(() => import('./views/Parentesco')),
 };
 
+pages.WEB__MedicalData = {
+  path: '/profiles/medicalData/:id',
+  component: lazy(() => import('./views/MedicalData')),
+};
+
+pages.WEB__Bachillerato = {
+  path: '/profiles/bachillerato/:id',
+  component: lazy(() => import('./views/Bachillerato')),
+};
+
+
+/******************************************************/
 export default pages;

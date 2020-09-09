@@ -5,54 +5,62 @@
  */
 
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import GroupIcon from '@material-ui/icons/Group';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Typography from '@material-ui/core/Typography';
+import ButtonBase from '@material-ui/core/ButtonBase';
 
-const StyledTableCell = withStyles((theme) => ({
-  head: {
-    backgroundColor: '#3949ab',
-    color: theme.palette.common.white,
-  },
-  body: {
-    fontSize: 14,
-  },
-}))(TableCell);
-
-const StyledTableRow = withStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
-    },
+    flexGrow: 1,
   },
-}))(TableRow);
+  tituloCabecera: {
+    color:'white',
+    padding:'25px',
+    background:'#3949ab',
+  },
+  subtituloCabecera:{
+    color:'red',
+    padding:'25px',
+    border:'2px solid #3949ab'
+  },
+  tituloContenido:{
+    background:'#3949ab',
+    padding:'10px',
+    color:'white',
+  },
+  paper: {
+    padding: theme.spacing(2),
+    /* margin: 'auto', */
+    maxWidth: 500,
+  },
+  image: {
+    width: 128,
+    height: 128,
+  },
+  img: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  },
+}));
 
-function createData(parentesco, nombres, apellidoPaterno, apellidoMaterno, Ci, Finado, Benef) {
-  return { parentesco, nombres, apellidoPaterno, apellidoMaterno, Ci, Finado, Benef };
+function createData(nombre, apellido_paterno, apellido_materno, ci, finado, benef, relacion) {
+  return { nombre, apellido_paterno, apellido_materno, ci, finado, benef, relacion };
 }
 
 const rows = [
-  createData('Bisabuelo(a)', 'Mario', 'Vargas', 'Gutierrez', '8728190','No','No'),
-  createData('Primo', 'Alex', 'Arce', 'Cruz','82917283','No','No'),
-  createData('Prima','Maria', 'Lopez', 'Vargas','21341221','No','No'),
-  createData('Tio','Jose Luis', 'Andrade', 'Vargas','21341221','No','No'),
-  createData('Prima','Maria', 'Lopez', 'Vargas','21341221','No','No'),
-];
+  createData('MARCO', 'GARCIA', 'ANDRADE', '564563453', 'NO','SI','PADRE'),  
+  createData('MARIA', 'ARCE', 'AGUILAR', '564765656', 'NO','SI','MADRE'),  
+  createData('TERESA', 'GARCIA', 'ARCE', '434543543', 'NO','NO','HERMANA'),  
+  createData('ELIANA', 'GARCIA', 'ARCE', '675675456', 'NO','NO','HERMANA'),  
+  createData('MARIO', 'GARCIA', 'ANDRADE', '675675456', 'NO','NO','TIO'),  
+  createData('ANDREA', 'LOPEZ', 'GUITIERREZ', '234212321', 'NO','NO','TIA'),  
+ ];
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 700,
-  },
-});
+
 
 
 const ContentRelationship = (props) => {
@@ -60,38 +68,138 @@ const ContentRelationship = (props) => {
     const classes = useStyles();
 
     return (     
-        <Card >          
-            <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="customized table">
-                    <TableHead>
-                    <TableRow>
-                        <StyledTableCell align="left">Parentesco</StyledTableCell>
-                        <StyledTableCell align="left">Nombres</StyledTableCell>
-                        <StyledTableCell align="left">Apellido Paterno</StyledTableCell>
-                        <StyledTableCell align="left">Apellido Materno</StyledTableCell>
-                        <StyledTableCell align="left">Nro CI</StyledTableCell>
-                        <StyledTableCell align="left">Finado</StyledTableCell>
-                        <StyledTableCell align="left">Benef</StyledTableCell>
-                    </TableRow>
-                    </TableHead>
-                    <TableBody>
-                    {rows.map((row) => (
-                        <StyledTableRow key={row.name}>
-                        <StyledTableCell component="th" scope="row">
-                            {row.parentesco}
-                        </StyledTableCell>                       
-                        <StyledTableCell align="left">{row.nombres}</StyledTableCell>
-                        <StyledTableCell align="left">{row.apellidoPaterno}</StyledTableCell>
-                        <StyledTableCell align="left">{row.apellidoMaterno}</StyledTableCell>
-                        <StyledTableCell align="left">{row.Ci}</StyledTableCell>
-                        <StyledTableCell align="left">{row.Finado}</StyledTableCell>
-                        <StyledTableCell align="left">{row.Benef}</StyledTableCell>
-                        </StyledTableRow>
-                    ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </Card>
+      <div className={classes.root}>
+      
+        <Paper className={classes.tituloCabecera}>
+          <Typography variant="h3">
+              La siguiente informacion hace referencia a su declaracion jurada de parentesco, la seleccion de beneficiarios se la debe realizar unicamente en coordinación con RRHH previa presentación de documentación solicitada
+          </Typography>
+        </Paper>
+      <br/>
+
+      <Paper className={classes.subtituloCabecera}>
+          <Typography variant="h5">
+              Yo {props.usuario} con C.I. N° {props.ci}, estado civil {props.estado_civil} y con domicilio en {props.domicilio} declaro que no tengo ningún parentesco hasta el cuarto grado de consanguinidad o segundo de afinidad, con otros funcionarios de Boliviana de Aviación - BoA Asi mismo, detallo a continuación las relaciones de parentesco hasta cuarto grado de consanguinidad y segundo de afinidad:
+          </Typography>
+        </Paper>
+      <br/>
+
+        <Paper className={classes.tituloContenido}>
+          <Typography variant="h6" align="center">
+              REGISTRO FAMILIARES
+          </Typography>
+        </Paper>
+        <br/>
+
+      <Grid container spacing={3}> 
+
+      {rows.map((row) => (
+        <Grid item xs={12} sm={3} >
+        <Paper className={classes.paper}>
+          <Grid container spacing={2}>         
+            <Grid item xs={12} sm container>
+              <Grid item xs container direction="column" spacing={2}>
+                <Grid item xs>
+                  <Grid container spacing={0}>
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        Parentesco:
+                      </Typography>
+                    </Grid> 
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        {row.relacion}
+                      </Typography>
+                    </Grid> 
+                  </Grid> 
+
+                  <Grid container spacing={0}>
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        Nombre:
+                      </Typography>
+                    </Grid> 
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        {row.nombre}
+                      </Typography>
+                    </Grid> 
+                  </Grid>
+                  
+                  <Grid container spacing={0}>
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        Apellido Paterno:
+                      </Typography>
+                    </Grid> 
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        {row.apellido_paterno}
+                      </Typography>
+                    </Grid> 
+                  </Grid>
+
+                  <Grid container spacing={0}>
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        Apellido Materno:
+                      </Typography>
+                    </Grid> 
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        {row.apellido_materno}
+                      </Typography>
+                    </Grid> 
+                  </Grid>
+
+                  <Grid container spacing={0}>
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        Nro C.I:
+                      </Typography>
+                    </Grid> 
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        {row.ci}
+                      </Typography>
+                    </Grid> 
+                  </Grid>
+
+                  <Grid container spacing={0}>
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        Finado:
+                      </Typography>
+                    </Grid> 
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        {row.finado}
+                      </Typography>
+                    </Grid> 
+                  </Grid>
+
+                  <Grid container spacing={0}>
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        Benef:
+                      </Typography>
+                    </Grid> 
+                    <Grid item xs={6} sm={6} >
+                      <Typography gutterBottom>
+                        {row.benef}
+                      </Typography>
+                    </Grid> 
+                  </Grid>
+
+                </Grid>            
+              </Grid>            
+            </Grid>
+          </Grid>
+        </Paper>
+      </Grid>
+      ))}
+       </Grid>
+    </div>
    
     );
 };

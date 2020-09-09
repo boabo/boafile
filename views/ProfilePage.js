@@ -28,8 +28,7 @@ const ProfilePage = (props) => {
     useEffect(() => {
       if (data) {
         setFuncionario(data.datos[0]);
-      }
-      console.log("aqui llega el dato",data);
+      }   
     }, [data]);
    
     const zipPostal = '';

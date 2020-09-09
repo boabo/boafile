@@ -21,7 +21,7 @@ import ProductDocuments from '../assets/icons/ProductDocuments';
 
 import useStylesCardFuncionario from '../assets/js/components/cardFuncionarioStyle';
 
-const CardFuncionario = ({ row, openManagerFile }) => {
+const CardFuncionario = ({ row, openManagerFile }) => {  
   const history = useHistory();
   const classesComponent = useStylesCardFuncionario(); 
   return (

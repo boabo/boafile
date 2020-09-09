@@ -288,14 +288,16 @@ const Menu = (props) => {
             </Tooltip>   */}
 
             <Tooltip title="Datos Médicos" placement="right">
-              <ListItem button key="Datos Médicos" className={classes.hover}>
+              <ListItem button key="Datos Médicos"  onClick={() => {
+                history.push(`/profiles/medicaldata/${props.id_funcionario}`); }} className={classes.hover}>
                 <ListItemIcon className={classes.iconos}><LocalHospitalIcon /></ListItemIcon>
                 <ListItemText primary="Datos Médicos" />
               </ListItem>
             </Tooltip>  
 
             <Tooltip title="Bachillerato" placement="right">
-              <ListItem button key="Bachillerato" className={classes.hover}>
+              <ListItem button key="Bachillerato" onClick={() => {
+                history.push(`/profiles/bachillerato/${props.id_funcionario}`); }} className={classes.hover}>
                 <ListItemIcon className={classes.iconos}><AssignmentIndIcon /></ListItemIcon>
                 <ListItemText primary="Bachillerato" />
               </ListItem>

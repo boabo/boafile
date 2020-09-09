@@ -5,13 +5,13 @@
  */
 import React,{useEffect,useState} from 'react';
 import Menu from '../components/Menu';
-import ContentRelationship from '../components/ContentRelationship';
+import ContentBachillerato from '../components/ContentBachillerato';
 import { useParams } from 'react-router-dom';
 import useJsonStore from '../../_pxp/hooks/useJsonStore';
 import { getUrlForView } from '../../_pxp/utils/Common';
 
 
-const Parentesco = (props) => {
+const Bachillerato = (props) => {
 
     const { id } = useParams();  
 
@@ -42,11 +42,11 @@ const Parentesco = (props) => {
              // size: 'pequeno',
            })}  
            usuario={funcionario.desc_person} 
-           contenido={<ContentRelationship usuario={funcionario.desc_person} ci={funcionario.ci} estado_civil={funcionario.estado_civil} domicilio={funcionario.direccion}/>}/> )}
+           contenido={<ContentBachillerato/>}/> )}
         </div>
 
        
       );
 };
 
-export default Parentesco;
+export default Bachillerato;

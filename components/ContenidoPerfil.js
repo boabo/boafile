@@ -25,12 +25,12 @@ const useStyles = makeStyles((theme) => ({
   },
   Cabecera:{    
     textAlign: 'left',
-    background:'#003f88',
+    background:'#3949ab',
     color:'#ffffff',
   },
   detalle:{    
     textAlign: 'left',
-    background:'#00509d',  
+    background:'#7F85AE',  
   },
   alineacion:{
     marginLeft:'120px'
@@ -40,20 +40,19 @@ const useStyles = makeStyles((theme) => ({
     background:"trans",  
   },
   comunicacion:{        
-    background:'#E7E7E7',    
+    background:'#ffffff',    
     padding:'15px',
     color:'#000000',
-    borderRadius:"2px",
-    border:"2px solid black"
+    /* borderRadius:"2px",
+    border:"2px solid black" */
   },
 
   datosPersonales:{        
-    background:'#E7E7E7', 
+    background:'#ffffff', 
     padding:'15px',  
     color:'#000000',
-    borderRadius:"2px",  
-    borderRadius:"2px",
-    border:"2px solid black"  
+   /*  borderRadius:"2px",    
+    border:"2px solid black"  */ 
   },
   
   /* expand: {

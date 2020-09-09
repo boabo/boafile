@@ -141,7 +141,20 @@ export default {
       id: 1100,
       component: 'WEB__Profile',
     },
+    {
+      id: 1200,
+      component: 'WEB__Parentesco',
+    },
+    
+    {
+      id: 1300,
+      component: 'WEB__MedicalData',
+    },
 
+    {
+      id: 1400,
+      component: 'WEB__Bachillerato',
+    },
   ],
   // darkTheme: 'PINK_DARK',
   // customThemes: [

@@ -5,16 +5,16 @@
  */
 import React,{useEffect,useState} from 'react';
 import Menu from '../components/Menu';
-import ContentRelationship from '../components/ContentRelationship';
+import ContentMedicalData from '../components/ContentMedicalData';
 import { useParams } from 'react-router-dom';
 import useJsonStore from '../../_pxp/hooks/useJsonStore';
 import { getUrlForView } from '../../_pxp/utils/Common';
 
 
-const Parentesco = (props) => {
+const MedicalData = (props) => {
 
     const { id } = useParams();  
-
+    console.log("aqui llega id dle funcionario",id);
     const { data } = useJsonStore({
         url: 'organigrama/Funcionario/listarFuncionario',
         params: {
@@ -27,8 +27,9 @@ const Parentesco = (props) => {
     // when the data has gotten an resp
     useEffect(() => {
       if (data) {
-        setFuncionario(data.datos[0]);        
+        setFuncionario(data.datos[0]);
       }
+      console.log("aqui llega el dato medical",data);
     }, [data]);
   
       return (
@@ -42,11 +43,11 @@ const Parentesco = (props) => {
              // size: 'pequeno',
            })}  
            usuario={funcionario.desc_person} 
-           contenido={<ContentRelationship usuario={funcionario.desc_person} ci={funcionario.ci} estado_civil={funcionario.estado_civil} domicilio={funcionario.direccion}/>}/> )}
+           contenido={<ContentMedicalData/>}/> )}
         </div>
 
        
       );
 };
 
-export default Parentesco;
+export default MedicalData;
