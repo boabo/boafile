@@ -21,9 +21,9 @@ import ProductDocuments from '../assets/icons/ProductDocuments';
 
 import useStylesCardFuncionario from '../assets/js/components/cardFuncionarioStyle';
 
-const CardFuncionario = ({ row, openManagerFile }) => {  
+const CardFuncionario = ({ row, openManagerFile }) => {
   const history = useHistory();
-  const classesComponent = useStylesCardFuncionario(); 
+  const classesComponent = useStylesCardFuncionario();
   return (
     <>
       <Card className={clsx(classesComponent.root)}>
@@ -52,9 +52,9 @@ const CardFuncionario = ({ row, openManagerFile }) => {
           </Box>
           <Box display="flex" alignItems="center" flexWrap="wrap">
             <OfficeChair2 />
-            <Label className={classesComponent.label}>
-              {row.nombre_oficina}
-            </Label>
+            <Box ml={1}>
+              <Typography color="textSecondary">{row.nombre_oficina}</Typography>
+            </Box>
           </Box>
           <Box display="flex" alignItems="center" flexWrap="wrap">
             <Email />
